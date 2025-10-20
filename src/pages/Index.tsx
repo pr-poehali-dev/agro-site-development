@@ -7,10 +7,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Slider } from '@/components/ui/slider';
 import Icon from '@/components/ui/icon';
 import { Badge } from '@/components/ui/badge';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const Index = () => {
   const [hectares, setHectares] = useState([500]);
   const [fuelSavings, setFuelSavings] = useState(15);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const calculateROI = () => {
     const avgFuelCost = 60;
@@ -81,6 +83,49 @@ const Index = () => {
             <Icon name="Phone" size={18} className="mr-2" />
             Позвонить
           </Button>
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="md:hidden">
+                <Icon name="Menu" size={24} />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <nav className="flex flex-col gap-6 mt-8">
+                <a 
+                  href="#catalog" 
+                  className="text-lg text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Каталог
+                </a>
+                <a 
+                  href="#reviews" 
+                  className="text-lg text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Отзывы
+                </a>
+                <a 
+                  href="#calculator" 
+                  className="text-lg text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Калькулятор
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-lg text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Контакты
+                </a>
+                <Button className="mt-4" onClick={() => setIsMenuOpen(false)}>
+                  <Icon name="Phone" size={18} className="mr-2" />
+                  Позвонить
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </header>
 
