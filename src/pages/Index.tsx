@@ -28,7 +28,7 @@ const Index = () => {
   const products = [
     {
       brand: 'Navmopo',
-      model: 'NV-3000 Pro',
+      model: 'AT2 Lite',
       price: '850 000 ₽',
       accuracy: '2.5 см',
       features: ['RTK-сигнал', 'Автоповорот', 'Картирование полей', 'Работа 24/7'],
